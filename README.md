@@ -5,7 +5,7 @@
 
 ## What It Does
 
-This tool constructs a multi-sector fixed income portfolio, computes key risk and performance metrics at both the position and portfolio level, and runs automated compliance checks against a defined mandate — flagging breaches and rendering a full visual dashboard for reporting.
+This tool builds a multi-sector fixed income portfolio, calculates key risk and performance metrics at both the position and portfolio level, and runs automated compliance checks against a defined mandate — flagging breaches and providing a full visual dashboard for reporting.
 
 ---
 
@@ -13,7 +13,7 @@ This tool constructs a multi-sector fixed income portfolio, computes key risk an
 
 Fixed income portfolio management teams spend significant time on exactly two things: monitoring whether portfolios are performing within mandate constraints, and surfacing data issues before they distort risk metrics. Both tasks are traditionally manual, error-prone, and time-consuming at scale.
 
-I built this tool to understand — and demonstrate — how that surveillance workflow functions under the hood. The goal was to move beyond academic knowledge of fixed income concepts and build something that reflects how an actual analyst seat operates: ingesting portfolio data, computing risk exposure, checking compliance rules, and producing clean reporting output without manual intervention.
+I built this tool to understand how surveillance workflow functions under the hood. The goal was to move beyond academic knowledge of fixed income concepts and build something that reflects how an actual analyst seat operates: ingesting portfolio data, computing risk exposure, checking compliance rules, and producing clean reporting output without manual intervention.
 
 ---
 
@@ -39,7 +39,7 @@ The project is structured across three modules that build on each other:
 Defines a five-bond portfolio across Government, Financial, Technology, and Municipal sectors. Computes present-value-based pricing for each position using coupon cash flows discounted at YTM, then calculates market value and portfolio weight per bond.
 
 **Module 2 — Risk & Performance Engine**
-Calculates Macaulay Duration, Modified Duration, and DV01 at the position level, then aggregates to weighted portfolio-level metrics. Also produces sector concentration and credit quality breakdowns.
+Calculates Macaulay Duration, Modified Duration, and DV01 at the position level and then aggregates them to weighted portfolio-level metrics. Also produces sector concentration and credit quality breakdowns.
 
 **Module 3 — Surveillance & Compliance Flagging**
 Runs 17 automated checks against a defined mandate (Investment Policy Statement constraints), flags any breach with the specific metric, threshold, and deviation, and produces a structured pass/fail surveillance report.
@@ -48,7 +48,7 @@ Runs 17 automated checks against a defined mandate (Investment Policy Statement 
 
 ## Key Outputs & Findings
 
-> *Portfolio constructed as of 2026-02-19 | Total Market Value: $32.47M*
+> *Portfolio latest updated as of 2026-02-19 | Total Market Value: $32.47M*
 
 | Metric | Value |
 |---|---|
@@ -63,13 +63,13 @@ Runs 17 automated checks against a defined mandate (Investment Policy Statement 
 The surveillance engine flagged a Government sector allocation of 55.00% against a 50% mandate limit. In a live portfolio context, this breach would trigger a rebalancing review with the portfolio manager and require documented escalation to compliance — exactly the workflow this tool is designed to surface automatically.
 
 **Key Risk Insight — UST-10Y Duration Concentration**
-Despite representing 24% of the portfolio by market value, the 10-year Treasury position contributed 39% of total portfolio DV01 ($5,793 of $14,679). This hidden rate sensitivity concentration is the kind of finding that manual spreadsheet monitoring frequently misses.
+Despite representing 24% of the portfolio by market value, the 10-year Treasury position contributed 39% of total portfolio DV01 ($5,793 of $14,679). This hidden rate sensitivity concentration is the kind of finding that manual monitoring frequently misses.
 
 ---
 
 ## Dashboard Output
 
-The tool renders an 8-panel visual dashboard saved automatically as `portfolio_monitor_dashboard.png`:
+The tool generates an 8-panel visual dashboard saved automatically as `portfolio_monitor_dashboard.png`:
 
 - Portfolio KPI Scorecard
 - Surveillance Status (pass/breach summary)
